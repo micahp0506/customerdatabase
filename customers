@@ -1,0 +1,52 @@
+use customers
+
+
+db.createuser({
+    "user": "Brad",
+    "pwd": "1234",
+    "roles": [{
+        role: "clusterAdmin",
+        db: "admin"},
+        {role: "readyAnyDatabase, db: "admin"},
+        ]},
+        {w: "majority", wtimeout: 5000})
+
+
+db.createCollection('customers');
+
+
+db.customers.insert({
+    "first_name": "John",
+    "last_name": "Doe"
+});
+
+db.customers.find();
+
+db.customers.insert([
+    {
+    firstt_name: "Steven",
+    last_name: "Johnson"
+    },
+    {
+    first_name: "Bob",
+    last_name: "Smith"
+    },
+    {
+    first_name: "Michelle",
+    last_name: "Ford"
+    },
+    {
+    first_name: "Jill",
+    last_name: "Swanson"
+    }
+
+])
+
+
+db.customers.insert({
+    first_name: "Mary",
+    last_name: "Jackson",
+    gender: "female",
+    age: 33,
+    birthdate: new Date('Sep 10, 1981')
+})
